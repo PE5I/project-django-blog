@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: gunicorn config.wsgi -b 0.0.0.0:8000
+    volumes:
+      - .:/djangoblog
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - "DJANGO_SECRET_KEY=django-insecure-$g+7=d-x07n7fa#mntma_8i%q2c4g)c*w7yp2b2chd88$jeh)7"
+      - "DJANGO_DEBUG=True"
+      - "DJANGO_ADMIN_SITE=newadmin/"
+      - "USER_LOGIN=accounts/login/"
+      - "USER_LOGOUT=accounts/logout/"
+      - "SSL_REDIRECT=False"
+  db:
+    image: postgres:11
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    
+volumes:
+  postgres_data:

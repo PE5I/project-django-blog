@@ -1,0 +1,29 @@
+.blog-link, .project-link {
+    color: #0074c2;
+    /* text-decoration: none; */
+}
+
+.blog-link:hover, .project-link:hover {
+    color: #0099ff;
+    text-decoration: none;
+}
+
+.date {
+    color: #616161
+}
+
+.container {
+    max-width:50em;
+}
+
+.posts, .projects {
+    position: relative;
+    clear:both;
+    padding-top: 0.50rem;
+    padding-bottom:0.50rem;
+    margin-bottom:0.50rem;
+}
+
+.navbar-collapse.collapse {
+    display: block!important;
+}

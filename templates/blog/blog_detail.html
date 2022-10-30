@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+{% block pagetitle %}{{ post.title }}{% endblock pagetitle %}
+
+{% block content %}
+<div>
+    <p><i class="date">{{ post.created_at | date:"l, F j, Y" }}</i></p>
+
+    <p>{{ post.content | safe }}</p>
+
+    {% if user.is_authenticated %}
+        <div class="moderation"> 
+            <a href="{% url 'post_update' post.slug %}"><button>Edit</button></a>
+            <a href="{% url 'post_delete' post.slug %}"><button>Delete</button></a>
+        </div>
+        <br>
+    {% endif %}
+</div>
+{% endblock content %}

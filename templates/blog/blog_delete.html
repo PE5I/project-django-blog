@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Delete Post{% endblock title %}
+{% block pagetitle %}Delete Post{% endblock pagetitle %}
+
+{% block content %}
+{{ form.media }}
+<div>
+    {% if user.is_authenticated %}
+      <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+      </form>
+    {% endif %}
+</div>
+{% endblock content %}

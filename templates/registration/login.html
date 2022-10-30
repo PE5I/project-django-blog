@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block content %}
+{% if not user.is_authenticated %}
+  <h3>Login</h3>
+
+  <div>
+    <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+      <label>Username</label>
+      <input type="username" name="username" id="username"><br>
+      <label>Password</label>
+      <input type="password" name="password" id="password"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+{% else %}
+  <p>
+    You are already signed in
+  </p>
+{% endif %}
+
+{% endblock content %}

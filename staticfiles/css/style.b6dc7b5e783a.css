@@ -1,0 +1,30 @@
+.pagetitle, a:hover {
+    color: #464646;
+    text-decoration: none;
+}
+
+.blog-link, .blog-title, .project-link, a {
+    color: #000000;
+    /* text-decoration: none; */
+}
+
+a:hover {
+    color: #464646;
+    text-decoration: none;
+}
+
+.date {
+    color: #616161
+}
+
+.container {
+    max-width:50em;
+}
+
+.posts, .projects {
+    position: relative;
+    clear:both;
+    padding-top: 0.50rem;
+    padding-bottom:0.50rem;
+    margin-bottom:0.50rem;
+}

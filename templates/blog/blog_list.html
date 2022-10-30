@@ -1,0 +1,30 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Blog{% endblock title %}
+{% block pagetitle %}Blog{% endblock pagetitle %}
+
+{% block content %}
+<div>
+    {% if user.is_authenticated %}
+        <div class="moderation"> 
+            <a href="{% url 'post_create' %}"><button>New Post</button></a>
+        </div>
+        <br>
+    {% endif %}
+    {% for post in post_list %}
+    <div class="posts">
+        {% if post.is_visible == True %}
+            <h2><a class="blog-link" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            <p><i class="date">{{ post.created_at | date:"l, F j, Y" }}</i></p>
+            <p>
+                {{ post.content | striptags | safe | truncatewords:90}}
+            </p>
+            <p>
+                <a class="blog-link" href="{{ post.get_absolute_url }}">Read more</a>
+            </p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
